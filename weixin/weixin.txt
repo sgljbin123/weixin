@@ -1,0 +1,3 @@
+2017-06-06 10:45:12 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:26) ->菜单创建成功！ 
+2017-06-06 10:45:22 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:26) ->菜单创建成功！ 
+2017-06-06 10:49:42 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:26) ->菜单创建成功！ 

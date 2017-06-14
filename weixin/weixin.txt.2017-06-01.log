@@ -1,0 +1,11 @@
+2017-06-01 11:00:11 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:30) ->菜单创建成功！ 
+2017-06-01 12:00:41 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:30) ->菜单创建成功！ 
+2017-06-01 15:52:51 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:31) ->菜单创建成功！ 
+2017-06-01 15:53:51 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:31) ->菜单创建成功！ 
+2017-06-01 15:55:35 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:31) ->菜单创建成功！ 
+2017-06-01 15:56:25 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:31) ->菜单创建成功！ 
+2017-06-01 17:24:07 [com.gongzhonghao.util.WeixinUtil]-[ERROR] [main] (WeixinUtil.java:51) ->创建菜单失败 errcode:{40054} errmsg:{invalid sub button url domain hint: [at80073vr19]} 
+2017-06-01 17:24:07 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:33) ->菜单创建失败，错误码：40054 
+2017-06-01 17:25:57 [com.gongzhonghao.util.WeixinUtil]-[ERROR] [main] (WeixinUtil.java:51) ->创建菜单失败 errcode:{40027} errmsg:{invalid sub button url size hint: [kEN390184vr22]} 
+2017-06-01 17:25:57 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:33) ->菜单创建失败，错误码：40027 
+2017-06-01 17:26:53 [com.gongzhonghao.util.MenuManager]-[INFO] [main] (MenuManager.java:31) ->菜单创建成功！ 

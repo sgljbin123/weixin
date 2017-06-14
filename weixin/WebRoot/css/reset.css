@@ -1,0 +1,93 @@
+@CHARSET "UTF-8";
+body {
+	font-size: 12px;
+	font-family: 微软雅黑;
+	margin-top:2em;
+}
+
+/**
+登录界面
+*/
+#errorDiv {
+	display:none;
+}
+#errorDiv span {
+	color:red;
+}
+
+/**
+home页面
+*/
+.menufont li a{
+		color:rgb(66, 139, 202);
+}
+
+.menufont li a:HOVER{
+		color:red;
+}
+/**
+日报页面样式
+*/
+.reportform table{
+	font-size: 14px;
+	font-family: 宋体;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin: 0 auto;
+	border: 1px solid #cad9ea;
+	color: #666;
+	text-align: center;
+	width:1150px;
+}
+.reportform table caption {
+	font-size: 16px;
+	font-family: 宋体;
+	color:red;
+}
+
+
+
+.reportform header {
+	font-family: "Microsoft YaHei";
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.reportform .datediv {
+	margin-left: 20%;
+}
+
+
+.reportform td {
+	height: 30px;
+}
+
+
+.reportform table th {
+	background-repeat: repeat-x;
+	height: 30px;
+	text-align: center;
+}
+
+.reportform table td,table th {
+	border: 1px solid #cad9ea;
+	padding:5px;
+}
+
+.reportform table tr.alter,input,select{
+	background-color: #f5fafe;
+	text-align: center;
+}
+.reportform td select {
+	width:100%;
+	height:25px;
+	text-align: center;
+}
+.hidden {
+	display: none;
+}
+
+.reportform td textarea {
+	height:100%;
+	background-color: #f5fafe;
+}
