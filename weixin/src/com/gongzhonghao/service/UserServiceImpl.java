@@ -27,13 +27,7 @@ public class UserServiceImpl implements UserServiceI{
 		if(null == users||users.size()==0){
 			userDao.save(u);
 			logger.info("用户注册成功");
-		}else{
-			logger.info(users);
-			u.setId(users.get(0).getId());
-			userDao.merge(u);
-		
 		}
-		
 	}
 	@Override
 	public User getUser(String openid) {

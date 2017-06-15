@@ -185,7 +185,7 @@ public class User implements java.io.Serializable {
 				+ verificationCode + ", createTime=" + createTime
 				+ ", updateTime=" + updateTime + ", userType=" + userType
 				+ ", sex=" + sex + ", notifyStart=" + notifyStart
-				+ ", notifyStop=" + notifyStop + ", wxCards=" + wxCards + "]";
+				+ ", notifyStop=" + notifyStop + "]";
 	}
 	
 	

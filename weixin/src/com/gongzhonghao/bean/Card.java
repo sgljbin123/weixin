@@ -112,10 +112,11 @@ public class Card implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Card [id=" + id + ", plateProvince="
-				+ plateProvince + ", plateChar=" + plateChar + ", plateNumber="
-				+ plateNumber + ", createTime=" + createTime + "]";
+		return "Card [id=" + id + ", plateProvince=" + plateProvince
+				+ ", plateChar=" + plateChar + ", plateNumber=" + plateNumber
+				+ ", createTime=" + createTime + "]";
 	}
+
 	
 	
 

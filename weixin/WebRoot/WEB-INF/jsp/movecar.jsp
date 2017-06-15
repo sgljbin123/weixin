@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/weui.min.css">
+<link href="image/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 <script type="text/javascript">
 $(function(){
 	$("#usernavdiv").hide();
@@ -128,7 +129,7 @@ $(function(){
 				</div>
 				<div class="weui-cell__bd">
 					<input class="weui-input" type="tel" name="plateNumber"
-						maxlength="5" pattern="[A-Za-z0-9]{5}" placeholder="5位车牌号"
+						maxlength="5" placeholder="5位车牌号"
 						id=plantNumber />
 				</div>
 			</div>

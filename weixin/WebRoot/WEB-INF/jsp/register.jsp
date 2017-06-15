@@ -75,25 +75,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		} else {
 			$("#getcodebutton").attr("disabled", "disabled");
 			var openid = $("#openid").val();
+			var time = 60;
+			var t = setInterval(printTime, 1000);
+			function printTime() {
+				time = time - 1;
+
+				$("#getcodebutton").text("重新发送(" + time + ")");
+
+				if (time == 0) {
+					clearInterval(t);
+					$("#getcodebutton").text("获取验证码");
+					$("#getcodebutton").removeAttr("disabled");
+				}
+
+			}
 			$.post("sendVerificationCode", {
 				telnumber : telnumber,
 				openid : openid
 			}, function(data, status) {
 				if (status == "success") {
-					var time = 60;
-					var t = setInterval(printTime, 1000);
-					function printTime() {
-						time = time - 1;
-
-						$("#getcodebutton").text("重新发送(" + time + ")");
-
-						if (time == 0) {
-							clearInterval(t);
-							$("#getcodebutton").text("获取验证码");
-							$("#getcodebutton").removeAttr("disabled");
-						}
-
-					}
+					
 
 				}
 			}
@@ -212,7 +213,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="weui-cell__bd">
 					<input class="weui-input" type="tel" name="plateNumber"
-						maxlength="5" pattern="[A-Za-z0-9]{5}" placeholder="5位车牌号"
+						maxlength="5" placeholder="5位车牌号"
 						id=plantNumber />
 				</div>
 			</div>
@@ -239,7 +240,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<label class="weui-label">可通知时间</label>
 				</div>
 				<div class="weui-cell__hd">
-					<select class="weui-select" name="notify_start" id="notify_start">
+					<select class="weui-select" name="notifyStart" id="notify_start">
 						<option value="0">00</option>
 						<option value="1">01</option>
 						<option value="2">02</option>
@@ -267,7 +268,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</select>
 				</div>
 				<div class="weui-cell__hd">
-					<select class="weui-select" name="notify_stop" id="notify_stop">
+					<select class="weui-select" name="notifyStop" id="notify_stop">
 						<option value="0">00</option>
 						<option value="1">01</option>
 						<option value="2">02</option>

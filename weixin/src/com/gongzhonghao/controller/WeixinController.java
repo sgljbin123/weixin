@@ -21,6 +21,7 @@ import com.gongzhonghao.bean.Card;
 import com.gongzhonghao.bean.User;
 import com.gongzhonghao.dto.JsAccessToken;
 import com.gongzhonghao.dto.SystemParam;
+import com.gongzhonghao.service.CardServiceI;
 import com.gongzhonghao.service.CoreService;
 import com.gongzhonghao.service.UserServiceI;
 import com.gongzhonghao.util.SignCheckUtil;
@@ -30,7 +31,8 @@ public class WeixinController {
 	private static Logger logger = Logger.getLogger(WeixinController.class);
 	@Autowired
 	public UserServiceI userService;
-
+	@Autowired
+	public CardServiceI cardService;
 	@RequestMapping(value = "/wx", method = RequestMethod.GET)
 	public void getRequest(SystemParam param, HttpServletResponse response) {
 		System.out.println("request");
@@ -111,6 +113,7 @@ public class WeixinController {
 //				user.setUsername(new String(user.getUsername().getBytes(
 //						"iso-8859-1"), "utf-8"));
 				Set<Card> cards = new HashSet<Card>();
+				card.setPlateNumber(card.getPlateNumber().toUpperCase());
 				card.setWxUser(user);
 				cards.add(card);
 				user.setWxCards(cards);
@@ -149,9 +152,11 @@ public class WeixinController {
 	}
 
 	@RequestMapping("/sendmovecarmsg")
-	public void sendmovecarmsg(HttpServletResponse response) {
+	public void sendmovecarmsg(Card card,HttpServletResponse response) {
 		logger.info("发送移车信息");
-		
+		card.setPlateNumber(card.getPlateNumber().toUpperCase());
+		logger.info(card);
+		cardService.get(card);
 		try {
 			response.getWriter().print("success");
 			response.getWriter().flush();
