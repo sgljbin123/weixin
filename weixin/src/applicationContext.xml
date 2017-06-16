@@ -12,7 +12,7 @@
      http://www.springframework.org/schema/mvc  
      http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-  <context:component-scan base-package="com.gongzhonghao.dao,com.gongzhonghao.service,com.gongzhonghao.bean"></context:component-scan> 
+  <context:component-scan base-package="com.gongzhonghao.dao,com.gongzhonghao.service,com.gongzhonghao.bean,com.gongzhonghao.timer,com.gongzhonghao.listener"></context:component-scan> 
  <context:property-placeholder location="classpath*:db.properties" />
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		destroy-method="close">

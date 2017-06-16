@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.http.HttpResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,8 @@ import com.gongzhonghao.dto.JsAccessToken;
 import com.gongzhonghao.dto.SystemParam;
 import com.gongzhonghao.service.CardServiceI;
 import com.gongzhonghao.service.CoreService;
+import com.gongzhonghao.service.MoveCarMessageServiceI;
+import com.gongzhonghao.service.MoveCarMessageServiceImpl;
 import com.gongzhonghao.service.UserServiceI;
 import com.gongzhonghao.util.SignCheckUtil;
 
@@ -33,6 +36,8 @@ public class WeixinController {
 	public UserServiceI userService;
 	@Autowired
 	public CardServiceI cardService;
+	@Autowired
+	public MoveCarMessageServiceI moveCarMessageService;
 	@RequestMapping(value = "/wx", method = RequestMethod.GET)
 	public void getRequest(SystemParam param, HttpServletResponse response) {
 		System.out.println("request");
@@ -82,6 +87,7 @@ public class WeixinController {
 //		if (null != openid) {
 			User user = new User();
 			user = userService.getUser(openid);
+			session.setAttribute("openid",openid);
 			if (null != user) {
 				logger.info(user);
 				mav = new ModelAndView("movecar");
@@ -152,18 +158,17 @@ public class WeixinController {
 	}
 
 	@RequestMapping("/sendmovecarmsg")
-	public void sendmovecarmsg(Card card,HttpServletResponse response) {
+	@ResponseBody
+	public String sendmovecarmsg(Card card,HttpSession session) {
 		logger.info("发送移车信息");
 		card.setPlateNumber(card.getPlateNumber().toUpperCase());
 		logger.info(card);
-		cardService.get(card);
-		try {
-			response.getWriter().print("success");
-			response.getWriter().flush();
-			response.getWriter().close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String openid = (String) session.getAttribute("openid");
+		logger.info("openid:"+openid);
+		if(moveCarMessageService.process(card, openid)){
+			return "success";
+		}else{
+			return "false";
 		}
 	}
 

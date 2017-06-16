@@ -15,7 +15,7 @@ public interface BaseDaoI<T> {
 	public void flush();
 	public void clear();
 	public void saveOrUpdate(T o);
-	public List<T> query(String queryString,Object[] values,int page,int row);
+	public List<T> query(String queryString,final Object[] params,Object[] values,int page,int row);
 	public int count(String queryString,Object[] values);
 	public List<T> query(final String queryString);
 	public List<T> findByParam(String queryString,String[] paramNames,Object[] values);

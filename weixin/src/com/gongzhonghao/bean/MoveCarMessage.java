@@ -22,6 +22,8 @@ public class MoveCarMessage implements Serializable{
 	private String createtime;
 	private String sendtime;
 	private int sendstatus;
+	private String plateProvince;
+	private String plateChar;
 	private String plateNumber;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -62,17 +64,32 @@ public class MoveCarMessage implements Serializable{
 	public void setSendstatus(int sendstatus) {
 		this.sendstatus = sendstatus;
 	}
+
+	public String getPlateNumber() {
+		return plateNumber;
+	}
+	public String getPlateProvince() {
+		return plateProvince;
+	}
+	public void setPlateProvince(String plateProvince) {
+		this.plateProvince = plateProvince;
+	}
+	public String getPlateChar() {
+		return plateChar;
+	}
+	public void setPlateChar(String plateChar) {
+		this.plateChar = plateChar;
+	}
+	public void setPlateNumber(String plateNumber) {
+		this.plateNumber = plateNumber;
+	}
 	@Override
 	public String toString() {
 		return "MoveCarMessage [id=" + id + ", fromid=" + fromid + ", toid="
 				+ toid + ", createtime=" + createtime + ", sendtime="
-				+ sendtime + ", sendstatus=" + sendstatus + "]";
-	}
-	public String getPlateNumber() {
-		return plateNumber;
-	}
-	public void setPlateNumber(String plateNumber) {
-		this.plateNumber = plateNumber;
+				+ sendtime + ", sendstatus=" + sendstatus + ", plateProvince="
+				+ plateProvince + ", plateChar=" + plateChar + ", plateNumber="
+				+ plateNumber + "]";
 	}
 	
 }

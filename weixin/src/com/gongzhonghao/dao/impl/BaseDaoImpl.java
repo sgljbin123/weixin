@@ -80,8 +80,9 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDaoI<T> {
 		// TODO Auto-generated method stub
 		getHibernateTemplate().saveOrUpdate(o);
 	}
+	
 	@Override
-	public List<T> query(final String queryString, final Object[] values, final int page, final int row) {
+	public List<T> query(final String queryString,final Object[] params, final Object[] values, final int page, final int row) {
 		// TODO Auto-generated method stub
 		List list = getHibernateTemplate().execute(new HibernateCallback<List>()
 		    {
@@ -91,13 +92,15 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDaoI<T> {
 		         query.setFirstResult((page-1)*row);
 		       query.setMaxResults(row);
 		        for (int i = 0; i < values.length ; i++) {
-		          query.setParameter(i, values[i]);
+//		          query.setParameter(i, values[i]);
+		        	query.setParameter((String)params[i], values[i]);
 		        }
 		        return query.list();
 	     }
 		    });
 	     return list;
 	}
+	
 	@Override
 	public int count(String queryString, Object[] values) {
 		// TODO Auto-generated method stub
