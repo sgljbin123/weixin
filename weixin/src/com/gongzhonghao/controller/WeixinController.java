@@ -118,12 +118,14 @@ public class WeixinController {
 //						.getBytes("iso-8859-1"), "utf-8"));
 //				user.setUsername(new String(user.getUsername().getBytes(
 //						"iso-8859-1"), "utf-8"));
-				Set<Card> cards = new HashSet<Card>();
-				card.setPlateNumber(card.getPlateNumber().toUpperCase());
-				card.setWxUser(user);
-				cards.add(card);
-				user.setWxCards(cards);
-				logger.info(user);
+				if(user.getUserType()==0){
+					Set<Card> cards = new HashSet<Card>();
+					card.setPlateNumber(card.getPlateNumber().toUpperCase());
+					card.setWxUser(user);
+					cards.add(card);
+					user.setWxCards(cards);
+				}
+				logger.info(user.getWxCards().toString());
 				logger.info(card);
 				userService.saveUser(user);
 				session.setAttribute("openid", user.getOpenid());
